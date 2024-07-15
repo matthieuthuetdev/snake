@@ -1,0 +1,32 @@
+html{
+    font-size: 62.5%;
+}
+header{
+    background-color: lightblue;
+    font-size: 1.6rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+}
+table{
+    border: solid black 1px;
+    height: 100%;
+}
+td{
+    border: solid 1px black;
+}
+#start{
+    align-items: center;
+}
+#beforstart{
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
+    background-color: lightblue;
+    text-align: center;
+    font-size: 3rem;
+    border: solid black 2px;
+}
