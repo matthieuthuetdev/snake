@@ -21,11 +21,13 @@ function afficherTableau() {
     const l5c6 = document.getElementById("l10c10")
     const befor_start = document.getElementById("beforstart");
     befor_start.style.display = "none";
-
+    jouer()
 }
-function mouvement(){
-    let teteLigne = 10
-    let teteColone = 10
-    
+function jouer(){
+    let direction = changerDirection()
 }
-export { genererTableau, afficherTableau }
+function changerDirection(){
+    console.log("ff")
+}
+export { genererTableau}
+export { afficherTableau}

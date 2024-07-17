@@ -1,7 +1,11 @@
-import { genererTableau, afficherTableau} from "./function.js";
+import { genererTableau, afficherTableau } from "./function.js";
 const start = document.getElementById("start");
 start.addEventListener("click", () => {
-  genererTableau(20, 20);
-  afficherTableau()
-  let direction
+  genererTableau()
+  let teteLigne = 10
+  let teteColone = 10
+  let longueure = 3
+  let direction = changeDirection()
+  
+
 });
