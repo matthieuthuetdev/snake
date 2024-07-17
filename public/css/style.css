@@ -1,17 +1,11 @@
 html{
     font-size: 62.5%;
 }
-header{
-    background-color: lightblue;
-    font-size: 1.6rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
 
-}
-table{
+
+#table{
     border: solid black 1px;
-    height: 100%;
+    
 }
 td{
     border: solid 1px black;
@@ -30,4 +24,7 @@ td{
     font-size: 3rem;
     border: solid black 2px;
     border-radius: 10%;
+}
+.display_none{
+    display: none;
 }
