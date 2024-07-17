@@ -1,5 +1,3 @@
-function genererTableau(l, c) {
-}
 function afficherTableau() {
     const h = window.innerHeight;
     const l = window.innerWidth;
