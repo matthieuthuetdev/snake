@@ -1,5 +1,5 @@
-class Serpent{
-    serpent(teteLigne, teteColone, direction, longueure, scor){
+class Serpent {
+    serpent(teteLigne, teteColone, direction, longueure, scor) {
         this.teteLigne = teteLigne;
         this.teteColone = teteColone;
         this.direction = direction;
@@ -7,3 +7,4 @@ class Serpent{
         this.scor = scor;
     }
 }
+export { Serpent }
