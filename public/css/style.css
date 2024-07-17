@@ -7,9 +7,6 @@ html{
     border: solid black 1px;
     
 }
-td{
-    border: solid 1px black;
-}
 #start{
     transform: scale(3);
 }
@@ -27,4 +24,11 @@ td{
 }
 .display_none{
     display: none;
+}
+.snake{
+    background-color: red;
+    border: solid black 1px;
+}
+.pts{
+    background-color: green;
 }
