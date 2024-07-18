@@ -1,5 +1,5 @@
 class Tableau {
-    Tableau(maxLigne, maxColone) {
+    constructor(maxLigne, maxColone) {
         this.maxLigne = maxLigne;
         this.maxColone = maxColone;
     }
