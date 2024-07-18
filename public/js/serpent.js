@@ -1,5 +1,5 @@
 class Serpent {
-  serpent() {
+  constructor() {
     this.teteLigne = 10;
     this.teteColone = 10;
     this.direction = 0;
@@ -8,29 +8,29 @@ class Serpent {
   }
   mouvement() {
     document.addEventListener("keydown", (e) => {
-      if (e.key == "arrowUp") {
+      if (e.key == "ArrowUp") {
         this.direction = "up";
-      } else if (e.key == "arrowRight") {
+      } else if (e.key == "ArrowRight") {
         this.direction = "right";
-      } else if (e.key == "arrowDown") {
+      } else if (e.key == "ArrowDown") {
         this.direction = "down";
-      } else if (e.key == "arrowLeft") {
+      } else if (e.key == "ArrowLeft") {
         this.direction = "left";
       }
     });
     setInterval(() => {
       if (this.direction == "up") {
-        this.teteLigne++;
-      } else if (this.direction == "right") {
-        this.teteLigne++;
-      } else if (this.direction == "down") {
         this.teteLigne--;
+      } else if (this.direction == "right") {
+        this.teteColone++;
+      } else if (this.direction == "down") {
+        this.teteLigne++;
       } else if (this.direction == "left") {
         this.teteColone--;
       }
-      const caseSible = document.getElementById("l"+this.teteLigne + "c"+ this.teteColone)
-      caseSible.setAttribute("class","snake")
-      
+      const caseSible = document.getElementById("l" + this.teteLigne + "c" + this.teteColone)
+      caseSible.classList.add("snake")
+
     }, 500);
   }
 
