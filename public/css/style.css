@@ -27,7 +27,6 @@ html{
 }
 .snake{
     background-color: red;
-    border: solid black 1px;
 }
 .pts{
     background-color: green;
