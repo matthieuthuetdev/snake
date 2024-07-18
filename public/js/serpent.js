@@ -34,8 +34,5 @@ class Serpent {
     }, 500);
   }
 
-  jouer() {
-    this.mouvement();
-  }
 }
 export { Serpent };
