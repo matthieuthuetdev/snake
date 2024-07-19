@@ -34,14 +34,25 @@ class Serpent {
       }
       this.defTeteId()
       console.log(this.teteId)
-      if (!this.verifier()) {
-        clearInterval(bouger)
+      if (this.direction == undefined) {
+        const cases = document.getElementById(this.teteId)
+        cases.classList.add("snake")
+      } else {
+
+
+        if (this.verifier()) {
+          clearInterval(bouger)
+        } else {
+          const cases = document.getElementById(this.teteId)
+          cases.classList.add("snake")
+        }
       }
-    }, 100);
+    }, 500);
   }
   verifier() {
     const casesSuivante = document.getElementById(this.teteId)
     const vivant = casesSuivante.classList.contains("snake")
+    console.log(vivant)
     return vivant
 
   }
