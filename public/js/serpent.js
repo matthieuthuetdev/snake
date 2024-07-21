@@ -12,14 +12,19 @@ class Serpent {
   }
   mouvement() {
     document.addEventListener("keydown", (e) => {
-      if (e.key == "ArrowUp") {
-        this.direction = "up";
-      } else if (e.key == "ArrowRight") {
-        this.direction = "right";
-      } else if (e.key == "ArrowDown") {
-        this.direction = "down";
-      } else if (e.key == "ArrowLeft") {
-        this.direction = "left";
+      const touche = e.key;
+      if (touche.startsWith("Arrow")) {
+        const flecheDirection = touche
+        
+        if (flecheDirection == "ArrowUp") {
+          this.direction = "up";
+        } else if (flecheDirection == "ArrowRight") {
+          this.direction = "right";
+        } else if (flecheDirection == "ArrowDown") {
+          this.direction = "down";
+        } else if (flecheDirection == "ArrowLeft") {
+          this.direction = "left";
+        }
       }
     });
     const bouger = setInterval(() => {
@@ -32,29 +37,26 @@ class Serpent {
       } else if (this.direction == "left") {
         this.teteColone--;
       }
-      this.defTeteId()
-      console.log(this.teteId)
+      this.defTeteId();
+      console.log(this.teteId);
       if (this.direction == undefined) {
-        const cases = document.getElementById(this.teteId)
-        cases.classList.add("snake")
+        const cases = document.getElementById(this.teteId);
+        cases.classList.add("snake");
       } else {
-
-
         if (this.verifier()) {
-          clearInterval(bouger)
+          clearInterval(bouger);
         } else {
-          const cases = document.getElementById(this.teteId)
-          cases.classList.add("snake")
+          const cases = document.getElementById(this.teteId);
+          cases.classList.add("snake");
         }
       }
     }, 500);
   }
   verifier() {
-    const casesSuivante = document.getElementById(this.teteId)
-    const vivant = casesSuivante.classList.contains("snake")
-    console.log(vivant)
-    return vivant
-
+    const casesSuivante = document.getElementById(this.teteId);
+    const vivant = casesSuivante.classList.contains("snake");
+    console.log(vivant);
+    return vivant;
   }
 }
 export { Serpent };
