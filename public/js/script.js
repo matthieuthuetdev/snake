@@ -4,7 +4,7 @@ const start = document.getElementById("start");
 
 start.addEventListener("click", () => {
     const table = new Tableau(20, 20)
-    const serpent = new Serpent()
+    const serpent = new Serpent(table)
     table.cree();
     table.afficher();
     serpent.mouvement()

@@ -1,11 +1,14 @@
+import { Tableau } from "./Tableau";
+
 class Serpent {
-  constructor() {
+  constructor(tableau) {
     this.teteLigne = 10;
     this.teteColone = 10;
     this.teteId = undefined;
     this.direction = undefined;
     this.longueure = 3;
     this.scor = 0;
+    this.tableau = tableau
   }
   defTeteId() {
     this.teteId = "l" + this.teteLigne + "c" + this.teteColone;
@@ -50,6 +53,7 @@ class Serpent {
           cases.classList.add("snake");
         }
       }
+      console.log("tableau : "+ this.tableau.maxligne)
     }, 500);
   }
   verifier() {
