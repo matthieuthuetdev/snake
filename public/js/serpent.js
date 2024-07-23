@@ -1,14 +1,14 @@
-import { Tableau } from "./Tableau";
 
 class Serpent {
-  constructor(tableau) {
+  constructor(tableMaxLigne, tableMaxColone) {
     this.teteLigne = 10;
     this.teteColone = 10;
     this.teteId = undefined;
     this.direction = undefined;
     this.longueure = 3;
     this.scor = 0;
-    this.tableau = tableau
+    this.tableMaxLigne = this.tableMaxLigne
+    this.tableMaxColone = this.tableMaxColone
   }
   defTeteId() {
     this.teteId = "l" + this.teteLigne + "c" + this.teteColone;
