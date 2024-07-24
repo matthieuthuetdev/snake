@@ -1,4 +1,3 @@
-
 class Serpent {
   constructor() {
     this.teteLigne = 10;
@@ -7,7 +6,7 @@ class Serpent {
     this.direction = undefined;
     this.longueure = 3;
     this.scor = 0;
-    this.positionHistorique = []
+    this.positionHistorique = [];
   }
   defTeteId() {
     this.teteId = "l" + this.teteLigne + "c" + this.teteColone;
@@ -16,15 +15,21 @@ class Serpent {
     document.addEventListener("keydown", (e) => {
       const touche = e.key;
       if (touche.startsWith("Arrow")) {
-        const flecheDirection = touche
+        const flecheDirection = touche;
 
         if (flecheDirection == "ArrowUp" && this.direction != "down") {
           this.direction = "up";
-        } else if (flecheDirection == "ArrowRight" && this.direction != "left") {
+        } else if (
+          flecheDirection == "ArrowRight" &&
+          this.direction != "left"
+        ) {
           this.direction = "right";
         } else if (flecheDirection == "ArrowDown" && this.direction != "up") {
           this.direction = "down";
-        } else if (flecheDirection == "ArrowLeft" && this.direction != "right") {
+        } else if (
+          flecheDirection == "ArrowLeft" &&
+          this.direction != "right"
+        ) {
           this.direction = "left";
         }
       }
@@ -52,35 +57,35 @@ class Serpent {
           clearInterval(bouger);
         }
       }
-      this.ajusterLongueure()
+      // this.ajusterLongueure();
     }, 500);
   }
   verifier() {
-    let vivant = false
+    let vivant = false;
     const casesSuivante = document.getElementById(this.teteId);
     if (casesSuivante != null) {
       if (!casesSuivante.classList.contains("snake")) {
-        vivant = true
+        vivant = true;
       }
     }
     return vivant;
   }
   ajusterLongueure() {
-    let nbMouvement = this.positionHistorique.length
-    this.positionHistorique.push(this.teteId)
+    let nbMouvement = this.positionHistorique.length;
+    this.positionHistorique.push(this.teteId);
     if (this.positionHistorique.length > this.longueure) {
-      const cases = document.getElementById(this.positionHistorique[this.positionHistorique.length - this.longueure])
-      cases.classList.remove("snake")
+      const caseASupprimer = this.positionHistorique.length - this.longueure
+      const cases = document.getElementById(his.positionHistorique[caseASupprimer]);
+      cases.classList.remove("snake");
     }
   }
-  jouer(){
-    document.removeEventListener("keydown", this.jouer)
-        this.mouvement()
-      }
-    
-  
+  jouer() {
+    //document.removeEventListener("keydown", this.jouer);
+    this.mouvement();
+  }
+
   commancerAJouer() {
-    document.addEventListener("keydown", this.jouer)
+    document.addEventListener("keydown", () => { this.jouer() });
   }
 }
 export { Serpent };
