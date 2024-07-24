@@ -1,14 +1,12 @@
 
 class Serpent {
-  constructor(tableMaxLigne, tableMaxColone) {
+  constructor() {
     this.teteLigne = 10;
     this.teteColone = 10;
     this.teteId = undefined;
     this.direction = undefined;
     this.longueure = 3;
     this.scor = 0;
-    this.tableMaxLigne = this.tableMaxLigne
-    this.tableMaxColone = this.tableMaxColone
   }
   defTeteId() {
     this.teteId = "l" + this.teteLigne + "c" + this.teteColone;
@@ -18,14 +16,14 @@ class Serpent {
       const touche = e.key;
       if (touche.startsWith("Arrow")) {
         const flecheDirection = touche
-        
-        if (flecheDirection == "ArrowUp" && this.direction  != "down") {
+
+        if (flecheDirection == "ArrowUp" && this.direction != "down") {
           this.direction = "up";
-        } else if (flecheDirection == "ArrowRight"  && this.direction  != "left") {
+        } else if (flecheDirection == "ArrowRight" && this.direction != "left") {
           this.direction = "right";
-        } else if (flecheDirection == "ArrowDown"  && this.direction  != "up") {
+        } else if (flecheDirection == "ArrowDown" && this.direction != "up") {
           this.direction = "down";
-        } else if (flecheDirection == "ArrowLeft" && this.direction  != "right") {
+        } else if (flecheDirection == "ArrowLeft" && this.direction != "right") {
           this.direction = "left";
         }
       }
@@ -47,18 +45,23 @@ class Serpent {
         cases.classList.add("snake");
       } else {
         if (this.verifier()) {
-          clearInterval(bouger);
-        } else {
           const cases = document.getElementById(this.teteId);
           cases.classList.add("snake");
+        } else {
+          clearInterval(bouger);
+
         }
       }
     }, 500);
   }
   verifier() {
+    let vivant = false
     const casesSuivante = document.getElementById(this.teteId);
-    const vivant = casesSuivante.classList.contains("snake");
-    console.log(vivant);
+    if ( casesSuivante != null ) {
+      if(!casesSuivante.classList.contains("snake")){
+        vivant = true
+      }
+    }
     return vivant;
   }
 }
