@@ -19,13 +19,13 @@ class Serpent {
       if (touche.startsWith("Arrow")) {
         const flecheDirection = touche
         
-        if (flecheDirection == "ArrowUp") {
+        if (flecheDirection == "ArrowUp" && this.direction  != "down") {
           this.direction = "up";
-        } else if (flecheDirection == "ArrowRight") {
+        } else if (flecheDirection == "ArrowRight"  && this.direction  != "left") {
           this.direction = "right";
-        } else if (flecheDirection == "ArrowDown") {
+        } else if (flecheDirection == "ArrowDown"  && this.direction  != "up") {
           this.direction = "down";
-        } else if (flecheDirection == "ArrowLeft") {
+        } else if (flecheDirection == "ArrowLeft" && this.direction  != "right") {
           this.direction = "left";
         }
       }
@@ -53,7 +53,6 @@ class Serpent {
           cases.classList.add("snake");
         }
       }
-      console.log("tableau : "+ this.tableau.maxligne)
     }, 500);
   }
   verifier() {
