@@ -7,6 +7,7 @@ class Serpent {
     this.direction = undefined;
     this.longueure = 3;
     this.scor = 0;
+    this.positionHistorique = []
   }
   defTeteId() {
     this.teteId = "l" + this.teteLigne + "c" + this.teteColone;
@@ -49,20 +50,28 @@ class Serpent {
           cases.classList.add("snake");
         } else {
           clearInterval(bouger);
-
         }
       }
+      this.ajusterLongueure()
     }, 500);
   }
   verifier() {
     let vivant = false
     const casesSuivante = document.getElementById(this.teteId);
-    if ( casesSuivante != null ) {
-      if(!casesSuivante.classList.contains("snake")){
+    if (casesSuivante != null) {
+      if (!casesSuivante.classList.contains("snake")) {
         vivant = true
       }
     }
     return vivant;
+  }
+  ajusterLongueure() {
+    let nbMouvement = this.positionHistorique.length
+    this.positionHistorique.push(this.teteId)
+    if (this.positionHistorique.length > this.longueure) {
+      const cases = document.getElementById(this.positionHistorique[this.positionHistorique.length - this.longueure])
+      cases.classList.remove("snake")
+    }
   }
 }
 export { Serpent };
