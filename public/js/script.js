@@ -7,5 +7,5 @@ start.addEventListener("click", () => {
     const serpent = new Serpent()
     table.cree();
     table.afficher();
-    serpent.mouvement()
+    serpent.commancerAJouer()
 });

@@ -73,5 +73,14 @@ class Serpent {
       cases.classList.remove("snake")
     }
   }
+  jouer(){
+    document.removeEventListener("keydown", this.jouer)
+        this.mouvement()
+      }
+    
+  
+  commancerAJouer() {
+    document.addEventListener("keydown", this.jouer)
+  }
 }
 export { Serpent };
