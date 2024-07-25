@@ -7,6 +7,7 @@ class Serpent {
     this.longueure = 3;
     this.scor = 0;
     this.positionHistorique = [];
+    this.start = false
   }
   defTeteId() {
     this.teteId = "l" + this.teteLigne + "c" + this.teteColone;
@@ -57,7 +58,7 @@ class Serpent {
           clearInterval(bouger);
         }
       }
-      // this.ajusterLongueure();
+      this.ajusterLongueure();
     }, 500);
   }
   verifier() {
@@ -72,16 +73,20 @@ class Serpent {
   }
   ajusterLongueure() {
     let nbMouvement = this.positionHistorique.length;
-    this.positionHistorique.push(this.teteId);
+    if (this.positionHistorique[nbMouvement] != this.teteId) {
+      this.positionHistorique.push(this.teteId);
+    }
     if (this.positionHistorique.length > this.longueure) {
-      const caseASupprimer = this.positionHistorique.length - this.longueure
-      const cases = document.getElementById(his.positionHistorique[caseASupprimer]);
+      const caseASupprimer = this.positionHistorique.length - this.longueure - 1
+      const cases = document.getElementById(this.positionHistorique[caseASupprimer]);
       cases.classList.remove("snake");
     }
   }
   jouer() {
-    //document.removeEventListener("keydown", this.jouer);
-    this.mouvement();
+    if (!this.start) {
+      this.mouvement();
+      this.start = true
+    }
   }
 
   commancerAJouer() {
