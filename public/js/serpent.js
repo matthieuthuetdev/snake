@@ -7,12 +7,12 @@ class Serpent {
     this.longueure = 3;
     this.scor = 0;
     this.positionHistorique = [];
-    this.start = false
   }
   defTeteId() {
     this.teteId = "l" + this.teteLigne + "c" + this.teteColone;
   }
   mouvement() {
+
     document.addEventListener("keydown", (e) => {
       const touche = e.key;
       if (touche.startsWith("Arrow")) {
@@ -36,6 +36,8 @@ class Serpent {
       }
     });
     const bouger = setInterval(() => {
+      this.ajusterLongueure();
+
       if (this.direction == "up") {
         this.teteLigne--;
       } else if (this.direction == "right") {
@@ -58,7 +60,6 @@ class Serpent {
           clearInterval(bouger);
         }
       }
-      this.ajusterLongueure();
     }, 500);
   }
   verifier() {
@@ -72,25 +73,17 @@ class Serpent {
     return vivant;
   }
   ajusterLongueure() {
-    let nbMouvement = this.positionHistorique.length;
-    if (this.positionHistorique[nbMouvement] != this.teteId) {
-      this.positionHistorique.push(this.teteId);
+    if (this.direction != undefined) {
+      let nbMouvement = this.positionHistorique.length;
+      if (this.positionHistorique[nbMouvement] != this.teteId) {
+        this.positionHistorique.push(this.teteId);
+      }
+      if (this.positionHistorique.length > this.longueure) {
+        const caseASupprimer = this.positionHistorique.length - this.longueure - 1
+        const cases = document.getElementById(this.positionHistorique[caseASupprimer]);
+        cases.classList.remove("snake");
+      }
     }
-    if (this.positionHistorique.length > this.longueure) {
-      const caseASupprimer = this.positionHistorique.length - this.longueure - 1
-      const cases = document.getElementById(this.positionHistorique[caseASupprimer]);
-      cases.classList.remove("snake");
-    }
-  }
-  jouer() {
-    if (!this.start) {
-      this.mouvement();
-      this.start = true
-    }
-  }
-
-  commancerAJouer() {
-    document.addEventListener("keydown", () => { this.jouer() });
   }
 }
 export { Serpent };
