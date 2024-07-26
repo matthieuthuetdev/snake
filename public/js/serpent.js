@@ -75,13 +75,12 @@ class Serpent {
   }
   ajusterLongueure() {
     if (this.direction != undefined) {
-      this.positionHistorique.push(this.teteColone)
+      this.positionHistorique.push(this.teteId)
       if (this.positionHistorique.length > this.longueure) {
-        const caseASupprimer = this.positionHistorique.shift()
+        const caseASupprimer = this.positionHistorique[0]
+        this.positionHistorique.shift()
         const cases = document.getElementById(caseASupprimer)
-        if (cases) {
-          cases.classList.remove("snake")
-        }
+        cases.classList.remove("snake")
       }
     }
   }
