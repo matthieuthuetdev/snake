@@ -3,7 +3,7 @@ class Serpent {
     this.teteLigne = 10;
     this.teteColone = 10;
     this.teteId = undefined;
-    this.direction = undefined;
+    this.direction = "";
     this.longueure = 3;
     this.scor = 0;
     this.positionHistorique = [];
@@ -74,7 +74,7 @@ class Serpent {
     return vivant;
   }
   ajusterLongueure() {
-    if (this.direction != undefined) {
+    if (this.direction != "") {
       this.positionHistorique.push(this.teteId)
       if (this.positionHistorique.length > this.longueure) {
         const caseASupprimer = this.positionHistorique[0]
@@ -83,6 +83,7 @@ class Serpent {
         cases.classList.remove("snake")
       }
     }
+    console.log(this.positionHistorique)
   }
 }
 export { Serpent };
