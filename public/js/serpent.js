@@ -36,7 +36,6 @@ class Serpent {
       }
     });
     const bouger = setInterval(() => {
-      this.ajusterLongueure();
 
       if (this.direction == "up") {
         this.teteLigne--;
@@ -60,6 +59,8 @@ class Serpent {
           clearInterval(bouger);
         }
       }
+      this.ajusterLongueure();
+
     }, 500);
   }
   verifier() {
@@ -74,14 +75,13 @@ class Serpent {
   }
   ajusterLongueure() {
     if (this.direction != undefined) {
-      let nbMouvement = this.positionHistorique.length;
-      if (this.positionHistorique[nbMouvement] != this.teteId) {
-        this.positionHistorique.push(this.teteId);
-      }
+      this.positionHistorique.push(this.teteColone)
       if (this.positionHistorique.length > this.longueure) {
-        const caseASupprimer = this.positionHistorique.length - this.longueure - 1
-        const cases = document.getElementById(this.positionHistorique[caseASupprimer]);
-        cases.classList.remove("snake");
+        const caseASupprimer = this.positionHistorique.shift()
+        const cases = document.getElementById(caseASupprimer)
+        if (cases) {
+          cases.classList.remove("snake")
+        }
       }
     }
   }
