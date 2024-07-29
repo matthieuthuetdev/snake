@@ -59,7 +59,6 @@ class Tete {
                     clearInterval(bouger);
                 }
             }
-            this.ajusterLongueure();
 
         }, 500);
     }
@@ -75,3 +74,4 @@ class Tete {
     }
 
 }
+export { Tete }

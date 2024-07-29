@@ -1,5 +1,6 @@
 class Corps {
-    constructor(segment){
+    constructor(segment) {
         this.segment = segment
     }
 }
+export { Corps }
