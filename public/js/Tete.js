@@ -36,6 +36,8 @@ class Tete {
             }
         });
         const bouger = setInterval(() => {
+            let cases = document.getElementById(this.teteId);
+            cases.classList.remove("snake");
 
             if (this.direction == "up") {
                 this.teteLigne--;
@@ -48,9 +50,8 @@ class Tete {
             }
             this.defTeteId();
             console.log(this.teteId);
-            const cases = document.getElementById(this.teteId);
+            cases = document.getElementById(this.teteId);
             cases.classList.add("snake");
-
         }, 500);
     }
 
