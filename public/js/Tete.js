@@ -48,29 +48,10 @@ class Tete {
             }
             this.defTeteId();
             console.log(this.teteId);
-            if (this.direction == undefined) {
-                const cases = document.getElementById(this.teteId);
-                cases.classList.add("snake");
-            } else {
-                if (this.verifier()) {
-                    const cases = document.getElementById(this.teteId);
-                    cases.classList.add("snake");
-                } else {
-                    clearInterval(bouger);
-                }
-            }
+            const cases = document.getElementById(this.teteId);
+            cases.classList.add("snake");
 
         }, 500);
-    }
-    verifier() {
-        let vivant = false;
-        const casesSuivante = document.getElementById(this.teteId);
-        if (casesSuivante != null) {
-            if (!casesSuivante.classList.contains("snake")) {
-                vivant = true;
-            }
-        }
-        return vivant;
     }
 
 }
