@@ -1,11 +1,12 @@
 import { Tableau } from "./Tableau.js";
-import { Serpent } from "./Serpent.js";
+import { Tete } from "./tete.js";
+import { Corps } from "./corps.js";
 const start = document.getElementById("start");
 
 start.addEventListener("click", () => {
     const table = new Tableau(20, 20)
-    const serpent = new Serpent()
+    const tete = new Tete()
     table.cree();
     table.afficher();
-    serpent.mouvement()
+    tete.mouvement()
 });
